@@ -5,12 +5,10 @@ set -e
 # older mup uses mongodb from apt-get and they used this data directory
 sudo mkdir -p /var/lib/mongodb
 
-sudo docker pull mongo:latest
-set +e
-sudo docker rm -f mongodb
-set -e
-
-sudo docker run \
+docker pull mongo:latest
+docker stop mongodb
+docker rm -f mongodb
+docker run \
   -d \
   --restart=always \
   --publish=127.0.0.1:27017:27017 \
