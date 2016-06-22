@@ -163,7 +163,27 @@ When building the meteor app, we can invoke few options. So, you can mention the
 
 #### RHEL Support
 
-Set the os attribute of the server to 'rhel' to handel special conditions on RHEL7.
+To install on RHEL7 (tested only on RHEL7 but may work for RHELx and/or CentOS). In addition to the sudoer changes discussed previously there may be an additional sudoer config change.
+
+##### Server
+
+The version of RHEL7 used for testing disables requiretty. This presents an issue when mupx attempts to connect and do it business. This is generally enforced by having Defaults requiretty in the /etc/sudoers. RedHat just recently removed this from Fedora and REHL, see Bug 1020147
+
+Comment out 'Defaults !requiretty' using visudo. This may also be an issue with how mupx utilizes ssh. See code block below from visudo.
+
+~~~txt
+...
+#
+# Disable "ssh hostname sudo <cmd>", because it will show the password in clear.
+#         You have to run "ssh -t hostname sudo <cmd>".
+#
+#Defaults    requiretty
+...
+~~~
+
+##### mup.json
+Set the 'os' attribute of the server to 'rhel' to handel special conditions on RHEL7.
+
 
 #### Deploy Wait Time
 
