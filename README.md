@@ -161,6 +161,10 @@ When building the meteor app, we can invoke few options. So, you can mention the
 
 ### Additional Setup/Deploy Information
 
+#### RHEL Support
+
+Set the os attribute of the server to 'rhel' to handel special conditions on RHEL7.
+
 #### Deploy Wait Time
 
 Meteor Up checks if the deployment is successful or not just after the deployment. By default, it will wait 15 seconds before the check. You can configure the wait time with the `deployCheckWaitTime` option in the `mup.json`
