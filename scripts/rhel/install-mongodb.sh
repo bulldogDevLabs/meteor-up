@@ -5,9 +5,16 @@ set -e
 # older mup uses mongodb from apt-get and they used this data directory
 sudo mkdir -p /var/lib/mongodb
 
+# refresh mongo docker image
 docker pull mongo:latest
-docker stop mongodb
-docker rm -f mongodb
+
+# remove mongodb docker image if it is present
+if docker ps | grep mongodb; then
+  docker rm -f mongodb
+fi
+
+# setup mongodb image for local access 
+# /var/lib/mongodb is preserved
 docker run \
   -d \
   --restart=always \
