@@ -21,6 +21,7 @@ This version of Meteor Up is powered by [Docker](http://www.docker.com/) and it 
 - [Deploying an App](#deploying-an-app)
 - [Build Options](#build-options)
 - [Additional Setup/Deploy Information](#additional-setupdeploy-information)
+    - [RHEL Support](#rhel-support)
     - [Server Setup Details](#server-setup-details)
     - [Deploy Wait Time](#deploy-wait-time)
     - [Multiple Deployment Targets](#multiple-deployment-targets)
@@ -182,7 +183,7 @@ Comment out 'Defaults !requiretty' using visudo. This may also be an issue with 
 ~~~
 
 ##### mup.json
-Set the 'os' attribute of the server to 'rhel' to handel special conditions on RHEL7.
+Identify the server os as RedHat by setting the 'os' attribute to 'rhel'.
 
 
 #### Deploy Wait Time
