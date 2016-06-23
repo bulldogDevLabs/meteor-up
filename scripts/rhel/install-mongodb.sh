@@ -9,9 +9,9 @@ sudo mkdir -p /var/lib/mongodb
 docker pull mongo:latest
 
 # remove mongodb docker image if it is present
-if docker ps | grep mongodb; then
-  docker rm -f mongodb
-fi
+set +e
+docker rm -f mongodb
+set -e
 
 # setup mongodb image for local access 
 # /var/lib/mongodb is preserved
